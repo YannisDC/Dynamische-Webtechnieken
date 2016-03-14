@@ -2,14 +2,14 @@
 ## Index
 
 - [Inleiding](## Inleiding)
-- [Les 1](## Les_1)
-- [Les 2](## Les_2)
-- [Les 3](## Les_3)
+- [Les 1](## Les 1)
+- [Les 2](## Les 2)
+- [Les 3](## Les 3)
 
 ## Inleiding
 Bij dynamische webtechnieken draait alles rond het principe van **DRY** (**D**on't **R**epeat **Y**ourself). De bedoeling is dat we verschillende onderdelen van onze website gaan opdelen in bouwstenen. We maken deze bouwstenen 1 keer zodat ze vervolgens dynamisch kunnen worden samengevoegd wanneer een bezoeker een bepaalde pagina opvraagt.
 
-Om gemakkelijk lokaal te werken met wordpress maken we gebruik van [MAMP](http://mamp.org).
+Om gemakkelijk lokaal te werken met wordpress maken we gebruik van [MAMP](http://mamp.info).
 
 ## Les 1
 
