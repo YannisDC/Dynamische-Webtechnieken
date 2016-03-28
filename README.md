@@ -7,7 +7,7 @@
 - [Les 3](## Les 3)
 
 ## Inleiding
-Bij dynamische webtechnieken draait alles rond het principe van **DRY** (**D**on't **R**epeat **Y**ourself). De bedoeling is dat we verschillende onderdelen van onze website gaan opdelen in bouwstenen. We maken deze bouwstenen 1 keer zodat ze vervolgens dynamisch kunnen worden samengevoegd wanneer een bezoeker een bepaalde pagina opvraagt.
+Bij dynamische webtechnieken draait alles rond het principe van **DRY** code (**D**on't **R**epeat **Y**ourself). De bedoeling is dat we verschillende onderdelen van onze website gaan opdelen in bouwstenen. We maken deze bouwstenen 1 keer zodat ze vervolgens dynamisch kunnen worden samengevoegd wanneer een bezoeker een bepaalde pagina opvraagt.
 
 Om gemakkelijk lokaal te werken met wordpress maken we gebruik van [MAMP](http://mamp.info).
 
@@ -159,10 +159,183 @@ add_action('init', 'syntra_theme_setup');
 ```
 Onder de code van de custom css en javascript files voegen we onze custom menus toe.
 
-(fotos van aanmaken menu)
+Vervolgens maken we de menus aan in het Wordpress dashboard via **Creat new menu**. We geven het dezelfde naam als de menus die we net geregistreerd hebben, bv. **Primary Header Menu** en vinken bij **Menu Settings** he bijpassende menu aan. Als we nu pagina's toevoegen zullen ze in dit menu worden ingeladen.
+
+#### header.php
+``` html
+<!doctype html>
+<html lang="nl">
+	<head>
+		<meta charset="utf-8">
+		<title>Syntra</title>
+    	<meta name="description" content="A custom wordpress theme">
+        <?php wp_head(); ?>
+	</head>
+    <body>
+    
+    	<?php wp_nav_menu(array('theme_location'=>'primary')); ?>
+```
+
+We voegen in de header aan de hand van **wp_nav_menu()** het menu toe met in dit geval de key *primary*.
+
+#### footer.php
+``` html
+    <footer>
+		<p>This is my footer</p>
+		<?php wp_nav_menu(array('theme_location'=>'secondary')); ?>
+	</footer>
+	
+	<?php wp_footer(); ?>
+	
+	</body>
+</html>
+```
+En in de footer voegen we aan de hand van dezelfde **wp_nav_menu()** helper functie het menu toe met in dit geval de key *secondary*.
 
 ## Les 2
 
+### 2.0 Page templates
+Aangezien we als paginatemplate standaard de structuur van index.php krijgen stelt zich de vraag: Wat als ik een andere structuur wil? Hiervoor zijn er custom page templates.
+#### page-about.php
+``` html
+<?php
+
+/*
+  Template Name: About Page
+ */
+
+get_header(); ?>
+
+  <h1>This is my about page</h1>
+
+  <?php
+        if ( have_posts() ):
+          while ( have_posts() ) : the_post();
+            the_content();
+          endwhile;
+        endif;
+  ?>
+
+<?php get_footer(); ?>
+```
+In comments zetten we de naam van de page template zodat Wordpress deze kan herkennen. Door het **if** statement en de **while** loop te gebruiken kunnen we de inhoud van de pagina inladen. We kunnen deze gemakkelijk in het dashboard wijzigen. Deze structuur is nodig omdat pagina's in Wordpress een appart post type zijn.
+
+### 2.1 De post loop
+Aangezien Wordpress van oorsprong een blogplatform is zijn veel van de elementen of bouwstenen gebaseerd op blogposts. Dit wordt in Wordpress een **post type** genoemd. In deze les leren we de blogloop gebruiken en leren we werken met **post formats** zoals video, gallery enz.
+
+#### functions.php
+``` php
+<?php
+
+...
+
+add_theme_support('post-thumbnails');
+add_theme_support('post-formats', array( 'image', 'video', 'gallery' ));
+?>
+```
+Omdat deze functionaliteit niet standaard in Wordpress geactiveerd is moeten we deze gaan activeren in **functions.php** .
+
+#### index.php
+``` html
+<?php get_header(); ?>
+
+	<h1>This is my index</h1>
+
+	<!-- This is the post loop-->
+    <?php
+        $args = array(
+          'post_type' => 'post',
+          'posts_per_page' => 3,
+          'category_name' => 'events'
+        );
+
+        $newsItem = new WP_Query($args);
+
+        if( $newsItem->have_posts() ):
+          while( $newsItem->have_posts() ): $newsItem->the_post();
+    ?>
+            <?php get_template_part('content', get_post_format()); ?>
+    <?php endwhile;
+        endif;
+
+    ?>
+
+<?php get_footer(); ?>
+```
+Net als bij het inladen van de pagina content gaan we ook hier kijken of er posts zijn en deze overlopen met een while loop. Om op voorhand te filteren gebruiken we een query. Het resultaat hiervan geven we mee in het if statement en de while loop. Om de content van de post te laten zien splitsen we op in post formats. Wanneer het format bij het aanmaken van een nieuwe post standaard blijft zal deze automatisch worden weergeven als **content.php**. Een post van het type video wordt weergeven als **content-video.php** enz.
+
+#### content.php
+``` html
+<a href="<?php the_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
+
+<div class="thumbnail-img"><?php the_post_thumbnail('medium'); ?></div>
+
+<small>Posted on: <?php the_time('F l j, Y'); ?> in <?php the_category(); ?></small>
+
+<p><?php the_excerpt(); ?></p>
+```
+
+#### content-video.php
+``` html
+<h3><?php the_title(); ?></h3>
+
+<small>Posted on: <?php the_time('F l j, Y'); ?></small>
+
+<p><?php the_excerpt(); ?></p>
+```
+Dit toont dat verschillende types van posts op verschillende manieren kunnen worden weergeven in het overzicht, wat navigeren gemakkelijker maakt.
+
+Tot slot kunnen we dan in het overzicht klikken op een apparte blogpost en deze bekijken via.
+
+#### single.php
+``` html
+<?php get_header(); ?>
+
+  <?php
+    if( have_posts() ):
+      while( have_posts() ): the_post(); ?>
+        <small>By <?php the_author(); ?>
+        <?php the_post_thumbnail('full'); ?></small>
+
+        <h3><?php the_title(); ?></h3>
+        <p><?php the_content(); ?></p>
+<?php endwhile;
+    endif;
+  ?>
+
+<?php get_footer(); ?>
+```
+Een gelijkaardige structuur als bij de page template komt hier weer terug. Uiteraard kan deze opmaak van binnen de while loop nog veel complexer en meer gelayout zijn.
+
+### 2.2 Header optimalisatie
+#### header.php
+``` html
+<!doctype html>
+<html <?php language_attributes(); ?>>
+	<head>
+		<meta charset="<?php bloginfo('charset'); ?>">
+		<title><?php bloginfo('name'); ?><?php wp_title('|'); ?></title>
+    <meta name="description" content="<?php bloginfo('description'); ?>">
+		<?php wp_head(); ?>
+	</head>
+
+  <?php
+
+    if( is_front_page() ):
+      $homepage_classes = array( 'homepage', 'my-class', 'extra-class' );
+    else:
+      $homepage_classes = array( 'no-homepage');
+    endif;
+
+  ?>
+
+	<body <?php body_class( $homepage_classes ); ?> >
+
+		<?php wp_nav_menu(array('theme_location'=>'primary')); ?>
+```
+Het dynamisch maken van de meta tags is belangrijk voor SEO doeleinden. De taal wordt nu ingegeven naargelang de taal van de Wordpress installatie. De bloginfo is aan te passen in de **customizer** en de title zorget ervoor dat we in de tab kunnen zien op welke pagina we ons bevinden.
+
+Tot slot kunnen we de header nog dynamischer gaan maken door een custom class toe te voegen die enkel verschijnt als men zich op de homepagina bevindt.
 
 ## Les 3
 

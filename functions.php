@@ -6,7 +6,6 @@ function syntra_script_enqueue() {
 	wp_enqueue_script('customjs', get_template_directory_uri() . '/js/syntra.js', array(), '1.0.0', true);
 
 }
-
 add_action( 'wp_enqueue_scripts', 'syntra_script_enqueue');
 
 function syntra_theme_setup() {
@@ -17,7 +16,6 @@ function syntra_theme_setup() {
 	register_nav_menu('secondary', 'Footer Menu');
 
 }
-
 add_action('init', 'syntra_theme_setup');
 
 add_theme_support('post-thumbnails');
