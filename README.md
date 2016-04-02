@@ -338,4 +338,90 @@ Het dynamisch maken van de meta tags is belangrijk voor SEO doeleinden. De taal 
 Tot slot kunnen we de header nog dynamischer gaan maken door een custom class toe te voegen die enkel verschijnt als men zich op de homepagina bevindt.
 
 ## Les 3
+### 3.0 Custom Post Types
+Omdat we in Wordpress soms verzamelingen van objecten willen maken is er het custom post type. Dit is custom functionaliteit die we moeten aanmaken en dus doen we dit in **functions.php** .
 
+#### functions.php
+```php
+...
+
+function syntra_custom_post_type_werknemers (){
+  $labels = array(
+    'name' => 'Werknemer',
+    'singular_name' => 'Werknemer',
+    'add_new' => 'Voeg werknemer toe',
+    'all_items' => 'Alle werknemers',
+    'add_new_item' => 'Voeg werknemer toe',
+    'edit_item' => 'Pas werknemer aan',
+    'new_item' => 'Nieuwe werknemer',
+    'view_item' => 'Bekijk werknemer',
+    'search_item' => 'Zoek werknemer',
+    'not_found' => 'Geen werknemers gevonden',
+    'not_found_in_trash' => 'Geen werknemers gevonden in prullenmand',
+    'parent_item_colon' => 'Bovenliggende werknemer'
+  );
+  $args = array(
+    'labels' => $labels,
+    'public' => true,
+    'has_archive' => true,
+    'publicly_queryable' => true,
+    'query_var' => true,
+    'rewrite' => true,
+    'capability_type' => 'post',
+    'hierarchical' => false,
+    'supports' => array(
+      'title',
+      'editor',
+      'excerpt',
+      'thumbnail',
+      'revisions'
+    ),
+    'menu_position' => 5,
+    'exclude_from_search' => false
+  );
+  register_post_type('werknemer', $args);
+}
+add_action('init','syntra_custom_post_type_werknemers');
+```
+Als we onze website refreshen kunnen we in het dashboard zien dat we nu een werknemer kunnen toevoegen. Nu kunnen we een pagina laten zien van al onze werknemers. Hiervoor gebruiken we een pagina template en een post loop.
+
+#### page-werkenemers.php
+```html
+<?php
+
+/*
+  Template Name: Werknemers Page
+ */
+
+get_header(); ?>
+
+    <?php
+        $args = array(
+          'post_type' => 'werknemer',
+          'posts_per_page' => 3
+        );
+
+        $werknemers = new WP_Query($args);
+
+        if( $werknemers->have_posts() ):
+          while( $werknemers->have_posts() ): $werknemers->the_post();
+    ?>
+            <?php get_template_part('werknemersamenvatting'); ?>
+    <?php endwhile;
+        endif;
+
+    ?>
+
+<?php get_footer(); ?>
+```
+
+We maken de template. Voegen een pagina toe met deze template en nu hebben we een pagina waarop men al onze werknemers kan zien. We splitsen de steeds herhalende stuctuur van een werknemers af in **werknemersamenvatting.php** .
+
+#### werknemersamenvatting.php
+```html
+<div class="werknemer">
+  <h3><?php the_title(); ?></h3>
+  <?php the_post_thumbnail('medium'); ?>
+  <?php the_excerpt(); ?>
+</div>
+```
