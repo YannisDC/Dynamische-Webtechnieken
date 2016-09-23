@@ -2,9 +2,9 @@
 ## Index
 
 - [Inleiding](## Inleiding)
-- [Les 1](## Les 1)
-- [Les 2](## Les 2)
-- [Les 3](## Les 3)
+- [Les 1](#les-1)
+- [Les 2](#les-2)
+- [Les 3](#les-3)
 
 ## Inleiding
 Bij dynamische webtechnieken draait alles rond het principe van **DRY** code (**D**on't **R**epeat **Y**ourself). De bedoeling is dat we verschillende onderdelen van onze website gaan opdelen in bouwstenen. We maken deze bouwstenen 1 keer zodat ze vervolgens dynamisch kunnen worden samengevoegd wanneer een bezoeker een bepaalde pagina opvraagt.
@@ -41,7 +41,7 @@ In de **style.css** file beschrijven we ons thema. Dit is de informatie over jou
 	</head>
     <body>
     	<h1>This is the unique page content.</h1>
-    
+
     	<footer>
         	<p>Footer and copyright text.</p>
         </footer>
@@ -80,7 +80,7 @@ Om ervoor te zorgen dat onze index.php template onveranderd blijft kunnen we de 
 <?php get_header(); ?>
 
     	<h1>This is the unique page content.</h1>
-    
+
 <?php get_footer(); ?>
 ```
 
@@ -128,7 +128,7 @@ We voegen alle stylesheets dynamisch toe a.d.h.v. de **wp_head()** helper functi
     	<footer>
         	<p>Footer and copyright text.</p>
         </footer>
-        
+
         <?php wp_footer(); ?>
     </body>
 </html>
@@ -172,7 +172,7 @@ Vervolgens maken we de menus aan in het Wordpress dashboard via **Creat new menu
         <?php wp_head(); ?>
 	</head>
     <body>
-    
+
     	<?php wp_nav_menu(array('theme_location'=>'primary')); ?>
 ```
 
@@ -184,9 +184,9 @@ We voegen in de header aan de hand van **wp_nav_menu()** het menu toe met in dit
 		<p>This is my footer</p>
 		<?php wp_nav_menu(array('theme_location'=>'secondary')); ?>
 	</footer>
-	
+
 	<?php wp_footer(); ?>
-	
+
 	</body>
 </html>
 ```
