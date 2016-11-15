@@ -1,17 +1,175 @@
 # Dynamische Webtechnieken
 ## Index
 
-- [Inleiding](## Inleiding)
-- [Les 1](#les-1)
-- [Les 2](#les-2)
+### Semester 1
+- [Les 1](#les-1) (Herhaling html+css)
+- [Les 2](#les-2) ()
 - [Les 3](#les-3)
+
+### Semester 2
+- [Inleiding](## Inleiding)
+
+
+- [Les 2.1](#les-2.1)
+- [Les 2.2](#les-2.2)
+- [Les 2.3](#les-2.3)
+
+# Semester 1
+## Les 1
+
+### Herhaling html
+Zoals we allemaal weten begint de basis van een website bij de index.html. Dit bestand bevat de bouwstenen van onze website.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  </head>
+  <body>
+  
+  </body>
+</html>
+
+```
+Bij het maken van deze file benoemen we eerst het type van het bestand. In dit geval is het doctype html (**H**yper**t**ext **M**arkup **L**anguage). Vervolgens maken we gebruik van specifieke [xml tags](http://www.w3schools.com/xml/xml_syntax.asp). Deze tags hebben altijd dezelfde opbouw.
+
+Een **openingstag** met:
+- De tagname of de naam van het element (zoals body of div).
+- Een of meerdere attributen (zoals class, id, width, style).
+- Bepaalde waarden voor elk van deze attributen.
+
+en een **sluitingstag** met daarin weer de tagname.
+
+```xml
+<element attribute="value"></element>
+
+<!-- For example -->
+<div id="most-important" class="blue-boxes"></div>
+```
+
+Eens we dit door hebben kunnen we verschillende tags gaan nesten. Dit maken we duidelijk door de geneste tags iets naar links uit te lijnen. Hierboven zien we dat de *head* en de *body* tags zijn genest in de **html** tag.
+En de *meta* en *title* tags zijn op hun beurt weer genest in de **head** tag.
+
+> Merk op: buiten andere tags kunnen de tags ook tekst bevatten zoals de h1, p, a en button tags.
+
+Ook in de onderstaande figuur wordt de boomstructuur weer duidelijk.
+
+```
++-- html
+    +-- head
+    |   +-- meta
+    |   +-- title
+    +-- body
+```
+Naarmate onze website groter wordt groot deze boomstructuur, de **DOM** (**D**ocument **O**bject **M**odel) genoemd.
+
+
+
+### Herhaling css
+Waar html de kapstok waarop onze hele website steunt is css (**C**ascading **S**tyle **S**heet) de vormgeving die gaat bepalen hoe hij eruit ziet.
+(Welke kleuren, dik of dun, afgeronde of scherpe hoeken?)
+
+Door te spelen met css kan je een website een totaal verschillende look en feel geven.
+
+```css
+element {
+	property: value;
+}
+
+/* For example */
+h1 {
+	font-family: "Times New Roman", Serif;
+}
+```
+
+Buiten enkel de basis html tags te gaan aanspreken kunnen we ook selecteren op een klasse, een id of andere pseudo selectors.
+
+#### Het verschil tussen id en class
+
+De id en class zijn beiden attributen die bij zo goed als elke html5 tag gebruikt kunnen worden om deze te gaan onderscheiden van de rest. Het verschil is dat een **class** een groep elementen omschrijft met gezamelijke eigenschappen terwijl het **id** attribuut veel specifieker is en slechts 1 uniek element aanduidt. Elke id mag dus slecht 1 maal voorkomen in heel je .html file tewijl je een class met b.v. een bepaalde layout naar hartelust kan gaan hergebruiken.
+
+Verschillende studenten kunnen in dezelfde klas zitten maar ieders heeft een unieke id (rijksregisternummer).
+
+```html
+<section id="container">
+  <div id="first-div"  class="blue-box">Some content for div 1</div>
+  <div id="second-div" class="blue-box">Some content for div 2</div>
+  <div id="third-div"  class="blue-box">Some content for div 3</div>
+</section>
+```
+
+```css
+div.center-aligned {
+  height: 50px;
+  width: 50px;
+  background-color: blue;
+}
+```
+
+Een voorbeeld
+
+```css
+/* Het aanduiden van een id */
+div#some-id {
+  background-color: red;
+}
+
+/* Het aanduiden van een klasse */
+div.some-class {
+  background-color: blue;
+}
+```
+
+Hoewel je zou denken dat de kleur van de klasse die van de id overschrijft doordat ze later wordt toegekend  is de id specifieker is krijgt deze voorrang op de class en wordt de achtergrond rood
+
+```html
+<div id="some-id" class="some-class">
+  Some Content
+</div>
+```
+
+
+
+#### Andere pseudo selectors
+
+De element**[attribute="value"]** selector wordt gebruikt om elementen te filteren op atribuut en waarde.
+
+In het onderstaande voorbeeld gaan we dus enkel het voornaam inputveld stylen 
+
+```css
+input[name="voornaam"] {
+  width: 200px;
+}
+```
+
+```html
+<form name="input" action="" method="post">
+  Voornaam:<input type="text" name="voornaam" value="Peter" size="20">
+  Achternaam:<input type="text" name="achternaam" value="Griffin" size="20">
+  <input type="button" value="Example Button">
+</form>
+```
+
+
+
+
+
+
+
+## jQuery
+
+
+
+# Semester 2
 
 ## Inleiding
 Bij dynamische webtechnieken draait alles rond het principe van **DRY** code (**D**on't **R**epeat **Y**ourself). De bedoeling is dat we verschillende onderdelen van onze website gaan opdelen in bouwstenen. We maken deze bouwstenen 1 keer zodat ze vervolgens dynamisch kunnen worden samengevoegd wanneer een bezoeker een bepaalde pagina opvraagt.
 
 Om gemakkelijk lokaal te werken met wordpress maken we gebruik van [MAMP](http://mamp.info).
 
-## Les 1
+## Les 2.1
 
 ### 1.0 De Basics
 Wanneer we een nieuw thema maken voor wordpress zijn er 2 files van het uiterste belang: style.css en index.php
@@ -192,7 +350,7 @@ We voegen in de header aan de hand van **wp_nav_menu()** het menu toe met in dit
 ```
 En in de footer voegen we aan de hand van dezelfde **wp_nav_menu()** helper functie het menu toe met in dit geval de key *secondary*.
 
-## Les 2
+## Les 2.2
 
 ### 2.0 Page templates
 Aangezien we als paginatemplate standaard de structuur van index.php krijgen stelt zich de vraag: Wat als ik een andere structuur wil? Hiervoor zijn er custom page templates.
@@ -337,7 +495,7 @@ Het dynamisch maken van de meta tags is belangrijk voor SEO doeleinden. De taal 
 
 Tot slot kunnen we de header nog dynamischer gaan maken door een custom class toe te voegen die enkel verschijnt als men zich op de homepagina bevindt.
 
-## Les 3
+## Les 2.3
 ### 3.0 Custom Post Types
 Omdat we in Wordpress soms verzamelingen van objecten willen maken is er het custom post type. Dit is custom functionaliteit die we moeten aanmaken en dus doen we dit in **functions.php** .
 
