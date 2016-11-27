@@ -3,8 +3,11 @@
 
 ### Semester 1
 - [Les 1](#les-1) (Herhaling html+css)
-- [Les 2](#les-2) ()
-- [Les 3](#les-3)
+- [Les 2](#les-2) (Bootstrap+grid system)
+- [Les 3](#les-3) (Inleiding programmeren)
+- [Les 4](#les-4) (Oefeningen programmeren)
+- [Les 5](#les-5) ()
+- [Les 6](#les-6) (jQuery)
 
 ### Semester 2
 - [Inleiding](## Inleiding)
@@ -154,13 +157,93 @@ input[name="voornaam"] {
 
 
 
+## Les 2
+
+### Bootstrap & gridsystem
+
+Bij het ontwerpen van een website is de layout van groot belang. Om ons hierbij te helpen kunnen we gebruik maken van een grid system. Hierbij delen we de breedte van ons scherm in in **x**-aantal kolommen van de dezelfde dikte. Elk van onze UI (User Interface) elementen neemt hierbij een aantal kolommen in.
+
+Bootstrap is een framework dat onder andere de mogelijkheid biedt zo'n grid te gebruiken. Het grid van Bootstrap bestaat uit 12 kolommen omdat dit gemakkelijk deelt door 2, 3 en 4. Zo blijft onze layout in evenwicht.
+
+Bootstrap maakt het bijvoorbeeld mogelijk twee foto's op een groot scherm naast elkaar te zetten en ze ieders de helft van het scherm te laten innemen en indien het scherm kleiner wordt ze allebei de volledige breedte van het scherm te laten innemen maar onder elkaar te zetten.![Schermafbeelding 2016-11-27 om 20.02.04](/Users/yannisdc/Documents/Dynamische-Webtechnieken/Schermafbeelding 2016-11-27 om 20.02.04.png)
+
+
+
+## Les 3
+
+
+
+## Les 4
+
+
+
+## Les 5
+
+
+
+## Les 6
+
+
+
+## Les 7
+
+### jQuery
+
+
+
+## Les 8
+
+### phpMyAdmin
 
 
 
 
-## jQuery
+
+## Layout & composition
+
+1. Afstand: Zet dingen die bij elkaar horen ook effectief bij elkaar.
+2. Negatieve ruimte: Geeft je design ruimte om te ademen.
+3. Uitlijnen: Geeft een goed overzicht en vormt harmonie. Consistentie is hier het belangrijkste. Denk hierbij aan een gridlayout of hulplijnen.
+4. Contrast: Trekt de aandacht van de lezer. Dit kan worden behaald met kleur, grootte of lettertypen.
+5. Herhaling/consistentie: Hergebruik van het kleurenpallet, tekststijl, uitlijning e.d. Dit zorgt voor een algemene samenhang.
+
+## Typografie
+
+### 9 basisregels
+
+https://www.youtube.com/watch?v=QrNi9FmdlxY
+
+1. Uitlijnen: Indien je twijfelt, lijn van links naar rechts uit. Zo kan het oog de linker lijn vinden en gemakkelijker beginnen lezen.
+2. Gebruik één font: Het gebruik van meerdere fonts vereist een goede kennis van fontpairing. Gebruik best ook geen die beiden serif of beiden sans-serif omdat deze minder contrast bieden.
+3. Slaag een fontweight over: Dit zorgt voor een groter contrast waardoor het onderscheid duidelijker wordt.
+4. Gebruik veelvouden: Een goede vuistregel is om de fontsize van je titels (in pixels) dubbel zo groot te maken als van je body tekst. Voor een dramatischer effect kan je ook 3 à 4 maal zo groot proberen.
+5. Lijn uit op 1 as: Lijn alleenstaande woorden zoals header links uit op 1 as. Dit zorgt voor een ordelijker overzicht.
+6. Kies een font: Leer werken met 1 bepaalde font tot je weet hoe je het moet gebruiken in allerlei verschillende situaties eerder dan elk project een ander font te gebruiken.
+7. Groepeer adhv lijnen: Lijnen of highlights kunnen gemakkelijk een onderscheid maken tussen verschillende blokken tekst.
+8. Vermijd de hoeken: Probeer geen tekst in de hoeken of aan de rand van je ontwerp te zetten tenzij je expres delen tekst wil afsnijden. Lege ruimte is net zo belangrijk als gevulde ruimte.
+9. Mind the gap: Je kan beter links uitlijnen voor een betere leesbaarheid dan dat er teveel witruimte tussen je woorden zit. Sluit een paragraaf niet af met een enkel woord. Laat na elk lesteken een spatie witruimte tot het volgende woord.
+
+Hierachy: What's important is bigger, bolder or more special
+
+Leading: Line spacing
+
+Tracking: Character spacing
+
+Kerning: Spacing between different characters
+
+[Bron](https://www.youtube.com/watch?v=QrNi9FmdlxY)
+
+> Font tips:
+>
+> - Start extreem, maak het vervolgens fijner
+> - Groter/Contrast = Belangrijker
+> - Beschouw typografie als een vorm in plaats van tekst
 
 
+
+### Identity design: Brand
+
+https://www.youtube.com/watch?v=pR7tMnKghDs
 
 # Semester 2
 
