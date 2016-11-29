@@ -171,9 +171,15 @@ Bootstrap maakt het bijvoorbeeld mogelijk twee foto's op een groot scherm naast 
 
 ## Les 3
 
+### Inleiding programmeren
+
+Wanneer we onze webpagina willen gaan animeren of manipuleren is een basiskennis programmeren vereist. Deze is terug te vinden in de ZOOC PDF over **Leren Programmeren**.
+
 
 
 ## Les 4
+
+### Oefeningen programmeren
 
 
 
@@ -197,9 +203,9 @@ Bootstrap maakt het bijvoorbeeld mogelijk twee foto's op een groot scherm naast 
 
 
 
+## Les 9
 
-
-## Layout & composition
+###  Layout & compositie
 
 1. Afstand: Zet dingen die bij elkaar horen ook effectief bij elkaar.
 2. Negatieve ruimte: Geeft je design ruimte om te ademen.
@@ -207,9 +213,19 @@ Bootstrap maakt het bijvoorbeeld mogelijk twee foto's op een groot scherm naast 
 4. Contrast: Trekt de aandacht van de lezer. Dit kan worden behaald met kleur, grootte of lettertypen.
 5. Herhaling/consistentie: Hergebruik van het kleurenpallet, tekststijl, uitlijning e.d. Dit zorgt voor een algemene samenhang.
 
-## Typografie
 
-### 9 basisregels
+
+###  Typografie
+
+**Hierachy:** What's important is bigger, bolder or more special
+
+**Leading:** Line spacing
+
+**Tracking:** Character spacing
+
+**Kerning:** Spacing between different characters
+
+#### 9 basisregels
 
 https://www.youtube.com/watch?v=QrNi9FmdlxY
 
@@ -223,14 +239,6 @@ https://www.youtube.com/watch?v=QrNi9FmdlxY
 8. Vermijd de hoeken: Probeer geen tekst in de hoeken of aan de rand van je ontwerp te zetten tenzij je expres delen tekst wil afsnijden. Lege ruimte is net zo belangrijk als gevulde ruimte.
 9. Mind the gap: Je kan beter links uitlijnen voor een betere leesbaarheid dan dat er teveel witruimte tussen je woorden zit. Sluit een paragraaf niet af met een enkel woord. Laat na elk lesteken een spatie witruimte tot het volgende woord.
 
-Hierachy: What's important is bigger, bolder or more special
-
-Leading: Line spacing
-
-Tracking: Character spacing
-
-Kerning: Spacing between different characters
-
 [Bron](https://www.youtube.com/watch?v=QrNi9FmdlxY)
 
 > Font tips:
@@ -241,9 +249,15 @@ Kerning: Spacing between different characters
 
 
 
-### Identity design: Brand
+####  Identity design: Brand
 
 https://www.youtube.com/watch?v=pR7tMnKghDs
+
+
+
+#### Kleurentheorie
+
+
 
 # Semester 2
 
