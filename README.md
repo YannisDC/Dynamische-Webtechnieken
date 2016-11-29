@@ -181,6 +181,149 @@ Wanneer we onze webpagina willen gaan animeren of manipuleren is een basiskennis
 
 ### Oefeningen programmeren
 
+#### Enkele Javascript voorbeelden
+
+```javascript
+// Verschillende soorten variabelen
+var aantalStudenten = 5;
+var aantalDocenten = 0;
+var bankSaldo = 19.21;
+var aanwezig = true;
+var character = "t";
+var string = "Dit is een verzameling van characters";
+var studentenNummers = [1,2,3,4,5];
+var studentenNamen = ["Jonas", "Kevin", "HyeJin", "Shqiponje", "Tessa"];
+
+// Bewerkingen
+var langeString = string + character;
+var mensenIn304 = aantalStudenten + aantalDocenten;
+console.log(string + character);
+
+// Control Flow
+if ((aantalStudenten == 5 && aantalDocenten == 1) || (aanwezig)) {
+  console.log("Joepie er is zes man aanwezig!");
+} else if( aantalStudenten == 4 ) {
+  console.log("Joepie er is vier man aanwezig!");
+} else {
+  console.log("Er is een ander aantal studenten aanwezig.");
+}
+
+// Switch
+var dag = "feestdag";
+
+switch (dag) {
+  case "maandag":
+    console.log("Vandaag is het maandag!");
+    break;
+  case "dinsdag":
+    console.log("Vandaag is het dinsdag!");
+    break;
+  case "woensdag":
+    console.log("Vandaag is het woensdag!");
+    break;
+  case "donderdag":
+    console.log("Vandaag is het donderdag!");
+    break;
+  case "vrijdag":
+    console.log("Vandaag is het vrijdag!");
+    break;
+  default:
+    console.log("Vandaag is het weekend");
+}
+
+// for (var i = 0; i < studentenNamen.length; i++) {
+//   console.log("Student "+ (i+1) + " is " + studentenNamen[i]);
+// }
+
+
+// Veralgemeende functie met een abstracte beschrijving
+function somOp(beschrijving, verzameling) {
+  for (var i = 0; i < verzameling.length; i++) {
+    console.log(beschrijving + " " + (i+1) + " is " + verzameling[i]);
+  }
+}
+
+somOp("Student", studentenNamen);
+
+var projectNamen = ["Bakker Website", "Dj logo", "Poster design"];
+somOp("Project", projectNamen);
+
+function changeContent() {
+  var element = document.querySelector("#item");
+  element.innerHTML = "<p>Some other content</p>"
+}
+
+$( document ).ready(function() {
+    el = $("#item");
+    //el.addClass("active");
+    console.log(el);
+});
+```
+
+
+
+#### Enkele php voorbeelden
+
+```php
+<?php
+
+$integer = 3;
+$float = 10.1;
+$string = "Hello World";
+$char = "!";
+$result = array(
+    "voornaam" => "Yannis",
+    "achternaam" => "De Cleene",
+    "email" => "yannisdcl@gmail.com"
+);
+
+// echo $result["voornaam"];
+
+if ($integer == 5) {
+  echo "Het is een vijf";
+} elseif ($integer == 4) {
+  echo "Het is een vier";
+} else {
+  echo "Het is een ander getal <br>";
+}
+
+$dag = "feestdag";
+
+switch ($dag) {
+  case 'maandag':
+    echo "Vandaag is het maandag";
+    break;
+  case 'dinsdag':
+    echo "Vandaag is het dinsdag";
+    break;
+  case 'woensdag':
+    echo "Vandaag is het woensdag";
+    break;
+  case 'donderdag':
+    echo "Vandaag is het donderdag";
+    break;
+  case 'vrijdag':
+    echo "Vandaag is het vrijdag";
+    break;
+
+  default:
+    echo "Vandaag is het weekend <br>";
+    break;
+}
+
+
+
+function countNumbers($aantal) {
+  for ($x = 1; $x < $aantal+1; $x++) {
+      echo "The number is: $x <br>";
+  }
+}
+
+countNumbers(20);
+
+?>
+```
+
 
 
 ## Les 5
@@ -195,6 +338,8 @@ Wanneer we onze webpagina willen gaan animeren of manipuleren is een basiskennis
 
 ### jQuery
 
+Als javascript bibliotheek vol functies maakt jQuery het mogelijk meer te doen met minder code en dus sneller te werken. Waar jQuery vooral in uitblinkt is manipulatie van de DOM. Dit houdt in dat we bepaalde elementen in ons html bestand gaan opzoeken en deze aanpassen, verwijderen of toevoegen. Als er zich bijvoorbeeld een specifiek event voordoet zoals een muisklik kan een de UI worden geupdate.
+
 
 
 ## Les 8
@@ -207,11 +352,11 @@ Wanneer we onze webpagina willen gaan animeren of manipuleren is een basiskennis
 
 ###  Layout & compositie
 
-1. Afstand: Zet dingen die bij elkaar horen ook effectief bij elkaar.
-2. Negatieve ruimte: Geeft je design ruimte om te ademen.
-3. Uitlijnen: Geeft een goed overzicht en vormt harmonie. Consistentie is hier het belangrijkste. Denk hierbij aan een gridlayout of hulplijnen.
-4. Contrast: Trekt de aandacht van de lezer. Dit kan worden behaald met kleur, grootte of lettertypen.
-5. Herhaling/consistentie: Hergebruik van het kleurenpallet, tekststijl, uitlijning e.d. Dit zorgt voor een algemene samenhang.
+1. **Afstand:** Zet dingen die bij elkaar horen ook effectief bij elkaar.
+2. **Negatieve ruimte:** Geeft je design ruimte om te ademen.
+3. **Uitlijnen:** Geeft een goed overzicht en vormt harmonie. Consistentie is hier het belangrijkste. Denk hierbij aan een gridlayout of hulplijnen.
+4. **Contrast:** Trekt de aandacht van de lezer. Dit kan worden behaald met kleur, grootte of lettertypen.
+5. **Herhaling/consistentie:** Hergebruik van het kleurenpallet, tekststijl, uitlijning e.d. Dit zorgt voor een algemene samenhang.
 
 
 
@@ -229,15 +374,15 @@ Wanneer we onze webpagina willen gaan animeren of manipuleren is een basiskennis
 
 https://www.youtube.com/watch?v=QrNi9FmdlxY
 
-1. Uitlijnen: Indien je twijfelt, lijn van links naar rechts uit. Zo kan het oog de linker lijn vinden en gemakkelijker beginnen lezen.
-2. Gebruik één font: Het gebruik van meerdere fonts vereist een goede kennis van fontpairing. Gebruik best ook geen die beiden serif of beiden sans-serif omdat deze minder contrast bieden.
-3. Slaag een fontweight over: Dit zorgt voor een groter contrast waardoor het onderscheid duidelijker wordt.
-4. Gebruik veelvouden: Een goede vuistregel is om de fontsize van je titels (in pixels) dubbel zo groot te maken als van je body tekst. Voor een dramatischer effect kan je ook 3 à 4 maal zo groot proberen.
-5. Lijn uit op 1 as: Lijn alleenstaande woorden zoals header links uit op 1 as. Dit zorgt voor een ordelijker overzicht.
-6. Kies een font: Leer werken met 1 bepaalde font tot je weet hoe je het moet gebruiken in allerlei verschillende situaties eerder dan elk project een ander font te gebruiken.
-7. Groepeer adhv lijnen: Lijnen of highlights kunnen gemakkelijk een onderscheid maken tussen verschillende blokken tekst.
-8. Vermijd de hoeken: Probeer geen tekst in de hoeken of aan de rand van je ontwerp te zetten tenzij je expres delen tekst wil afsnijden. Lege ruimte is net zo belangrijk als gevulde ruimte.
-9. Mind the gap: Je kan beter links uitlijnen voor een betere leesbaarheid dan dat er teveel witruimte tussen je woorden zit. Sluit een paragraaf niet af met een enkel woord. Laat na elk lesteken een spatie witruimte tot het volgende woord.
+1. **Uitlijnen:** Indien je twijfelt, lijn van links naar rechts uit. Zo kan het oog de linker lijn vinden en gemakkelijker beginnen lezen.
+2. **Gebruik één font:** Het gebruik van meerdere fonts vereist een goede kennis van fontpairing. Gebruik best ook geen die beiden serif of beiden sans-serif omdat deze minder contrast bieden.
+3. **Slaag een fontweight over:** Dit zorgt voor een groter contrast waardoor het onderscheid duidelijker wordt.
+4. **Gebruik veelvouden:** Een goede vuistregel is om de fontsize van je titels (in pixels) dubbel zo groot te maken als van je body tekst. Voor een dramatischer effect kan je ook 3 à 4 maal zo groot proberen.
+5. **Lijn uit op 1 as:** Lijn alleenstaande woorden zoals header links uit op 1 as. Dit zorgt voor een ordelijker overzicht.
+6. **Kies een font:** Leer werken met 1 bepaalde font tot je weet hoe je het moet gebruiken in allerlei verschillende situaties eerder dan elk project een ander font te gebruiken.
+7. **Groepeer adhv lijnen:** Lijnen of highlights kunnen gemakkelijk een onderscheid maken tussen verschillende blokken tekst.
+8. **Vermijd de hoeken:** Probeer geen tekst in de hoeken of aan de rand van je ontwerp te zetten tenzij je expres delen tekst wil afsnijden. Lege ruimte is net zo belangrijk als gevulde ruimte.
+9. **Mind the gap:** Je kan beter links uitlijnen voor een betere leesbaarheid dan dat er teveel witruimte tussen je woorden zit. Sluit een paragraaf niet af met een enkel woord. Laat na elk lesteken een spatie witruimte tot het volgende woord.
 
 [Bron](https://www.youtube.com/watch?v=QrNi9FmdlxY)
 
