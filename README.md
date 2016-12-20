@@ -1,4 +1,5 @@
 # Dynamische Webtechnieken
+
 ## Index
 
 ### Semester 1
@@ -165,9 +166,7 @@ Bij het ontwerpen van een website is de layout van groot belang. Om ons hierbij 
 
 Bootstrap is een framework dat onder andere de mogelijkheid biedt zo'n grid te gebruiken. Het grid van Bootstrap bestaat uit 12 kolommen omdat dit gemakkelijk deelt door 2, 3 en 4. Zo blijft onze layout in evenwicht.
 
-Bootstrap maakt het bijvoorbeeld mogelijk twee foto's op een groot scherm naast elkaar te zetten en ze ieders de helft van het scherm te laten innemen en indien het scherm kleiner wordt ze allebei de volledige breedte van het scherm te laten innemen maar onder elkaar te zetten.![Schermafbeelding 2016-11-27 om 20.02.04](/Users/yannisdc/Documents/Dynamische-Webtechnieken/Schermafbeelding 2016-11-27 om 20.02.04.png)
-
-
+Bootstrap maakt het bijvoorbeeld mogelijk twee foto's op een groot scherm naast elkaar te zetten en ze ieders de helft van het scherm te laten innemen en indien het scherm kleiner wordt ze allebei de volledige breedte van het scherm te laten innemen maar onder elkaar te zetten.![Schermafbeelding 2016-11-27 om 20.02.04](Schermafbeelding%202016-11-27%20om%2020.02.04.png)
 
 ## Les 3
 
@@ -360,6 +359,10 @@ Als javascript bibliotheek vol functies maakt jQuery het mogelijk meer te doen m
 
 
 
+
+
+
+
 ###  Typografie
 
 **Hierachy:** What's important is bigger, bolder or more special
@@ -401,6 +404,105 @@ https://www.youtube.com/watch?v=pR7tMnKghDs
 
 
 #### Kleurentheorie
+
+
+
+## Les 10
+
+### Dynamische elementen inladen
+
+#### via jQuery
+
+
+
+**menu.html**
+
+```html
+<div id="wrap">
+	<div class="container">
+    	<div class="row">
+        	<div class="col-xs-12 menu-block">
+            	<div class="row menu-titel">
+            		<h1>Menu</h1>
+            	</div>
+            	<div class="row menu-items">
+              	</div>
+         	</div>
+        </div>
+    </div>
+</div>
+```
+
+
+
+**menus.js**
+
+```javascript
+$( document ).ready(function() {
+    var menuBlock = $('.menu-block');
+    var menuItems = $('.menu-items');
+
+    $.get("http://localhost:8888/Restorant-master/menu.json", function(data, status) {
+      for (var i = 0; i < data.menu.length; i++) {
+        // var image = $(menuItem[i]).find('img');
+        // image.attr("src",data.menu[i].image);
+        //
+        // var description = $(menuItem[i]).find('p');
+        // description.html(data.menu[i].name);
+
+        var menuItem ='<div class="col-xs-12 col-md-4 menu-item">'+
+                      '<div class="row">'+
+                      '<img src="'+data.menu[i].image+'" class="menu-image">'+
+                      '</div>'+
+                      '<div class="row">'+
+                      '<p>'+data.menu[i].name+'</p>'
+                      '</div>'+
+                      '</div>';
+
+        menuItems.append(menuItem);
+      }
+    })
+
+});
+```
+
+
+
+**menu.json**
+
+```json
+{
+	"menu": [
+		{
+			"name": "Brood met tsatsiki",
+			"price": "29.00",
+			"description": "Lorem ipsum",
+			"image": "http://neophilia.be/food/menu1.jpg"
+		},
+		{
+			"name": "Pasta Rucolla",
+			"price": "27.00",
+			"description": "Lorem ipsum",
+			"image": "http://neophilia.be/food/menu2.jpg"
+		},
+      
+		...
+      
+		{
+			"name": "Bessentaart",
+			"price": "15.00",
+			"description": "Lorem ipsum",
+			"image": "http://neophilia.be/food/menu8.jpg"
+		}
+	]
+}
+```
+
+
+
+
+
+#### via php+html
 
 
 
