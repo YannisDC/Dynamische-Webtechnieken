@@ -168,6 +168,8 @@ Bootstrap is een framework dat onder andere de mogelijkheid biedt zo'n grid te g
 
 Bootstrap maakt het bijvoorbeeld mogelijk twee foto's op een groot scherm naast elkaar te zetten en ze ieders de helft van het scherm te laten innemen en indien het scherm kleiner wordt ze allebei de volledige breedte van het scherm te laten innemen maar onder elkaar te zetten.![Schermafbeelding 2016-11-27 om 20.02.04](Schermafbeelding%202016-11-27%20om%2020.02.04.png)
 
+
+
 ## Les 3
 
 ### Inleiding programmeren
@@ -327,9 +329,13 @@ countNumbers(20);
 
 ## Les 5
 
+Oefeningen Programmeren
+
 
 
 ## Les 6
+
+Oefeningen Programmeren
 
 
 
@@ -339,11 +345,72 @@ countNumbers(20);
 
 Als javascript bibliotheek vol functies maakt jQuery het mogelijk meer te doen met minder code en dus sneller te werken. Waar jQuery vooral in uitblinkt is manipulatie van de DOM. Dit houdt in dat we bepaalde elementen in ons html bestand gaan opzoeken en deze aanpassen, verwijderen of toevoegen. Als er zich bijvoorbeeld een specifiek event voordoet zoals een muisklik kan een de UI worden geupdate.
 
+```javascript
+$( document ).ready(function() {
+  var elementSelector = $('a'); // Selecteert de a tag en alles daarbinnen.
+  var idSelector = $('div#menu'); // Selecteert de div met id menu en alles daarbinnen.
+  var classSelector = $('div.dessert'); // Selecteert alle divs met class dessert en alles daarbinnen en maakt van deze DOMnodes een array.
+});
+```
+
+Eens we de DOM node hebben die we zochten kunnen we er events aan koppelen of wijzigingen aan maken.
+
+```javascript
+idSelector.click(function(){
+   $(this).hide(); // Verbergt de node wanneer men er op klikt.
+});
+
+idSelector.html("Hello <b>world</b>!"); // Wijzigt de inhoud van de DOM node.
+
+idSelector.css({"background-color": "yellow", "font-size": "20px"}); //Wijzigt de achtergrondkleur en fontsize van de DOM node.
+```
+
+Dit zijn slechts enkele voorbeelden van wat je met jQuery kan. Op W3schools of de website van jQuery zelf vind je meer informatie over de wijzigingen die jij wil gebruiken.
+
 
 
 ## Les 8
 
 ### phpMyAdmin
+
+PhpMyAdmin is een open-source programma waarmee je via je webbrowser een MySQL database kan beheren. Je kan databases aanmaken en verwijderen, tabellen aanmaken, aanpassen en verwijderen, records aanmaken, aanpassen en verwijderen en dit allemaal met een grafische interface.
+
+We kunnen dus de data beheren zonder dat we iets moeten veranderen aan de look en feel van de eigenlijke website.
+
+
+
+### Database
+
+Een MySQL database is van het type: relationele database. Dit wil zeggen dat ze is opgebouwd uit tabellen die met elkaar zijn gelinked. Dit linken wordt gedaan om dubbel(zinnig)e data te vermijden. 
+
+De tabellen zelf bestaan uit verschillende kolommen die de inhoud beschrijven en rijen die en invulling geven van mogelijke waarden.
+
+| id   | price | name         | description       | imageurl             |
+| ---- | ----- | ------------ | ----------------- | -------------------- |
+| 1    | 15    | Sandwich     | Delicious bread.  | uploads/sandwich.png |
+| 2    | 10    | Pumpkin Soup | Magnificent soup. | uploads/soup.png     |
+| 3    | 12    | Ice Cream    | Heavenly dessert  | uploads/icecream.png |
+
+In dit voorbeeld is de **id** auto incrementing (zelf optellend) en dus uniek. Indien men vanuit bv. de bestellingstabel naar een bepaalde menu wordt verwezen kan dit aan de hand van de id.
+
+
+
+### SQL
+
+SQL statements worden gebruikt om data aan te passen in de MySQL database vanuit php code. 
+
+Hier enkele voorbeelden.
+
+```sql
+INSERT INTO menu (name, price, description, imageurl) VALUES ("Bread Tsatsiki", "15", "Some bread with delicious tsatsiki", "http://localhost:8888/uploads/menu1.jpg") 
+/* Maakt een nieuwe record aan */
+
+SELECT name, price, description, imageurl FROM menu 
+/* Zoekt alle records in de menu table en geeft hun naam, prijs, beschrijving en afbeeldingslink terug */
+
+SELECT * FROM menu WHERE price = "15"
+/* Zoekt alle records in de menu table waarvoor de prijs 15 is en geeft al hun gegevens terug */
+```
 
 
 
